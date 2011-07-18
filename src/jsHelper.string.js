@@ -1,3 +1,20 @@
+/*
+	jsHelper
+    Copyright (C) 2011  David Emo
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 jsHelper.String = function(instance) {    
     var CHARS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split(''); 
     
@@ -28,30 +45,6 @@ jsHelper.String = function(instance) {
         
         div = null;
         return str;
-    };
-    
-    instance.uuid = function (len, radix) {
-        var chars = CHARS, uuid = [];
-        radix = radix || chars.length;
-        
-        if (len) {
-            for (var i = 0; i < len; i++) uuid[i] = chars[0 | Math.random()*radix];
-        }
-        else {
-            var r;
-            
-            uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
-            uuid[14] = '4';
-            
-            for (var i = 0; i < 36; i++) {
-                if (!uuid[i]) {
-                    r = 0 | Math.random()*16;
-                    uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r];
-                }
-            }
-        }
-        
-        return uuid.join('');
     };
 
     return instance;
