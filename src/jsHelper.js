@@ -55,6 +55,18 @@ var jsHelper = function(instance) {
     instance.isString = function(data) {
         return (typeof data === 'string');
     }
+    
+    instance.isInt = function(data) { 
+        return !isNaN(parseInt(data,10)) && (parseFloat(data) == parseInt(data,10)); 
+    }
+    
+    instance.isBoolean = function(data) {
+        return (typeof data === 'boolean');
+    }
+    
+    instance.isObject = function(data) {
+        return (typeof data === 'object');
+    }
 
     return instance;
 }(jsHelper || {});
